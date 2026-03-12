@@ -517,3 +517,130 @@ body {
     font-size: 1rem;
   }
 }
+
+/* ============ TOP NAV ============ */
+.top-nav {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.nav-logo {
+  background: var(--warm-yellow);
+  color: var(--dark);
+  border-radius: 8px;
+  width: 38px; height: 38px;
+  display: flex; justify-content: center; align-items: center;
+  font-size: 1.1rem;
+  font-weight: 800;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+.btn-register-top {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 0.6rem 1.2rem;
+  border-radius: 99px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.btn-register-top:hover {
+  background: var(--white);
+  color: var(--dark);
+}
+
+/* ============ ARTIFACTS EXPANDED ============ */
+.artifact-card.full-width {
+  grid-column: 1 / -1;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.audio-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+  text-align: left;
+}
+
+.audio-track {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: background 0.2s;
+}
+
+.audio-track:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.track-title {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  color: var(--warm-light);
+}
+
+.audio-track audio {
+  width: 100%;
+  height: 32px;
+  filter: sepia(20%) saturate(70%) grayscale(50%);
+}
+
+.quiz-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.btn-sm {
+  display: block;
+  width: 100%;
+  padding: 0.6rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--white);
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.btn-sm:hover {
+  background: var(--warm-yellow);
+  color: var(--dark);
+  border-color: var(--warm-yellow);
+}
+
+.artifact-status.completed {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+  text-decoration: none;
+  margin-top: 1rem;
+}
+
+.artifact-status.completed:hover {
+  background: rgba(16, 185, 129, 0.3);
+}

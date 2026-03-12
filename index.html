@@ -15,19 +15,39 @@
 
 <body>
 
+  <!-- TOP NAV -->
+  <nav class="top-nav">
+    <a href="https://www.linkedin.com/company/culturecodecommunity/posts/?feedView=all" target="_blank"
+      class="nav-brand">
+      <div class="nav-logo">CC</div>
+      <span class="nav-brand-text">Culture Code</span>
+    </a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeS5UR2RFwPXHfmdazBFn1YnhXywqGEFP7-2ZAJZJpLh7FCaQ/viewform"
+      target="_blank" class="btn-register-top">Đăng ký ngay</a>
+  </nav>
+
   <!-- HEADER -->
   <header class="hero">
-    <div class="hero-badge">DHM #4 · Hà Nội</div>
+    <div class="hero-badge" style="text-transform: none; font-size: 0.95rem; line-height: 1.5; padding: 0.8rem 1.5rem;">
+      <strong>07:00 - 17:00, Thứ Bảy 04/04/2026</strong><br />
+      Khách sạn Harmony, 32A-34 Bùi Thị Xuân, P. Phạm Ngũ Lão, TP. Hồ Chí Minh.
+    </div>
     <h1 class="hero-title">Delivering<br /><span class="accent">Happiness</span></h1>
-    <p class="hero-sub">Masterclass Retreat — Tổng hợp kiến thức từ 15 nguồn ghi âm thực tế</p>
     <div class="hero-meta">
-      <span>👩‍🏫 Cô Hà Minh Châu</span>
+      <span>👩‍🏫 <a href="https://www.linkedin.com/company/culturecodecommunity/posts/?feedView=all" target="_blank"
+          style="color: inherit;">Cô Hà Minh Châu & Culture Code</a></span>
       <span>·</span>
-      <span>🎯 10 Chủ đề</span>
+      <span>🎯 7 Nội dung</span>
       <span>·</span>
       <span>🔬 Khoa học Hạnh phúc</span>
     </div>
-    <a href="#topics" class="btn-primary">Xem nội dung ↓</a>
+    <div style="display: flex; gap: 15px; margin-top: 15px;">
+      <a href="#topics" class="btn-primary"
+        style="background: rgba(255,255,255,0.1); color: white; box-shadow: none; border: 1px solid rgba(255,255,255,0.2);">Xem
+        nội dung ↓</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSeS5UR2RFwPXHfmdazBFn1YnhXywqGEFP7-2ZAJZJpLh7FCaQ/viewform"
+        target="_blank" class="btn-primary">Đăng ký ngay tham gia</a>
+    </div>
   </header>
 
   <!-- OVERVIEW / OBJECTIVES -->
@@ -36,28 +56,26 @@
       <h2 class="section-title">Mục tiêu khoá học</h2>
       <div class="cards-grid">
         <div class="card">
-          <div class="card-icon">1️⃣</div>
+          <div class="card-icon">🚀</div>
           <h3>Tìm hiểu yếu tố cốt lõi</h3>
           <p>Tìm hiểu sâu về các yếu tố thúc đẩy và xây dựng một nền <strong>văn hóa tích cực mạnh mẽ</strong>.</p>
         </div>
         <div class="card">
-          <div class="card-icon">2️⃣</div>
+          <div class="card-icon">✨</div>
           <h3>Trải nghiệm lợi ích</h3>
           <p>Cung cấp trải nghiệm thực tế về <strong>lợi ích của thói quen hạnh phúc</strong> trong đời sống chuyên môn
             lẫn cá nhân.</p>
         </div>
         <div class="card">
-          <div class="card-icon">3️⃣</div>
+          <div class="card-icon">🧠</div>
           <h3>Đồng bộ hóa khái niệm</h3>
-          <p>Khởi động quá trình <strong>đồng bộ hóa khái niệm</strong> và tư duy (mindset) của tất cả người tham gia.
-          </p>
+          <p>Khởi động quá trình <strong>đồng bộ hóa khái niệm</strong> và tư duy của tất cả người tham gia.</p>
         </div>
         <div class="card">
-          <div class="card-icon">4️⃣</div>
+          <div class="card-icon">🛠️</div>
           <h3>Công cụ thực tiễn</h3>
-          <p>Cung cấp các công cụ và <strong>phương pháp thực tiễn</strong> mà người tham gia có thể áp dụng
-            <strong>ngay lập tức</strong>.
-          </p>
+          <p>Cung cấp các công cụ và <strong>phương pháp thực tiễn</strong> có thể áp dụng <strong>ngay lập
+              tức</strong>.</p>
         </div>
       </div>
     </div>
@@ -192,20 +210,7 @@
     <div class="container">
       <h2 class="section-title">📼 Studio Artifacts</h2>
       <p class="section-sub">Các nội dung được tạo ra từ NotebookLM Studio cho notebook này</p>
-      <div class="artifacts-note">
-        <div class="artifact-tip">
-          <span class="tip-icon">💡</span>
-          <div>
-            <strong>Cách lấy artifacts từ NotebookLM Studio:</strong>
-            <ol>
-              <li>Vào <a href="https://notebooklm.google.com" target="_blank">notebooklm.google.com</a></li>
-              <li>Mở notebook <strong>"DH Master Class 4 HN - 24052025"</strong></li>
-              <li>Xem panel Studio bên phải — tải về Podcast, Study Guide, Quiz, v.v.</li>
-              <li>Chạy lệnh: <code>nlm studio status 83c60631-fcfc-4138-b96a-bc99826be158 --full</code></li>
-            </ol>
-          </div>
-        </div>
-      </div>
+
       <div class="artifacts-grid" id="artifactsGrid">
         <!-- AUDIO SERIES -->
         <div class="artifact-card full-width">
@@ -278,6 +283,20 @@
             class="artifact-status pending">Mở NotebookLM Studio</a>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- REGISTER CTA -->
+  <section class="section register-cta" id="register"
+    style="background: var(--warm-yellow); color: var(--dark); text-align: center; padding: 4rem 1.5rem;">
+    <div class="container">
+      <h2 class="section-title" style="margin-bottom: 1rem;">Sẵn sàng thiết kế văn hóa hạnh phúc?</h2>
+      <p class="section-sub" style="color: var(--dark); font-size: 1.1rem; margin-bottom: 2rem;">Hãy đặt chỗ ngay hôm
+        nay để tham gia Masterclass Retreat.</p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSeS5UR2RFwPXHfmdazBFn1YnhXywqGEFP7-2ZAJZJpLh7FCaQ/viewform"
+        target="_blank" class="btn-primary"
+        style="background: var(--dark); color: var(--warm-yellow); box-shadow: 0 8px 24px rgba(0,0,0,0.15);">Mở Form
+        Đăng Ký NGAY</a>
     </div>
   </section>
 
