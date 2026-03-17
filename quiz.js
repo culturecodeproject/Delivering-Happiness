@@ -3,7 +3,7 @@ const quizData = [
         q: "Bạn có một định hướng cuộc đời (Mục tiêu/Đam mê) rất rõ ràng và hay nói về nó, nhưng lại không dành thời gian hay tiền bạc để rèn luyện. Trạng thái này gọi là gì?",
         options: [
             { text: "Kẻ mộng mơ, lười biếng.", isCorrect: false },
-            { text: "NATO (No Action Talk Only) – Trạng thái chỉ có Compass mà thiếu Watch và Dollar.", isCorrect: true },
+            { text: "NATO (No Action Talk Only).", isCorrect: true },
             { text: "Người thiếu kỷ luật bản thân.", isCorrect: false },
             { text: "Người có tư duy tích cực nhưng thiếu thực tế.", isCorrect: false }
         ],
@@ -23,7 +23,7 @@ const quizData = [
         q: "Khi đối mặt với một cơn giận hoặc một quyết định bốc đồng sắp xảy ra, phương pháp 'sơ cứu tâm lý' ngay lập tức là gì?",
         options: [
             { text: "Cố gắng kiềm chế, uống nước, đi chỗ khác.", isCorrect: false },
-            { text: "Thói quen Mindfulness với công cụ SBA (Stop - Breathe - Ask).", isCorrect: true },
+            { text: "Mindfulness với công cụ SBA.", isCorrect: true },
             { text: "Hít sâu 3 lần và nhắm mắt lại.", isCorrect: false },
             { text: "Đếm từ 1 đến 10 để kiềm chế cơn giận.", isCorrect: false }
         ],
@@ -33,17 +33,17 @@ const quizData = [
         q: "Cảm giác thỏa mãn khi ăn một món ngon, lướt Tiktok hoặc chơi game giải trí thuộc nhóm hạnh phúc nào?",
         options: [
             { text: "Sở thích, niềm vui.", isCorrect: false },
-            { text: "Level 1 - Pleasure (Khoái cảm ngắn hạn).", isCorrect: true },
+            { text: "Level 1 - Pleasure (Thú vui).", isCorrect: true },
             { text: "Đam mê nhất thời.", isCorrect: false },
             { text: "Sự thư giãn đơn thuần.", isCorrect: false }
         ],
-        explanation: "Level 1 - Pleasure (Khoái cảm ngắn hạn). Cần nhận biết để không bị nghiện và nhầm lẫn với Hạnh phúc đích thực (Higher Purpose)."
+        explanation: "Level 1 - Pleasure (Thú vui). Cần nhận biết để không bị nghiện và nhầm lẫn với Hạnh phúc đích thực (Higher Purpose)."
     },
     {
         q: "Để một nhân sự thực sự hạnh phúc và cống hiến hết mình tại nơi làm việc, sếp cần cung cấp 3 đòn bẩy tâm lý (Levers) nào?",
         options: [
             { text: "Lương cao, sếp tâm lý, đồng nghiệp vui vẻ.", isCorrect: false },
-            { text: "Progress (Tiến bộ), Control (Tự chủ) và Connectedness (Kết nối).", isCorrect: true },
+            { text: "Progress, Control và Connectedness.", isCorrect: true },
             { text: "Môi trường làm việc chuyên nghiệp + Chế độ đãi ngộ tốt.", isCorrect: false },
             { text: "Công việc ổn định + Cơ hội thăng tiến rõ ràng.", isCorrect: false }
         ],
@@ -63,7 +63,7 @@ const quizData = [
         q: "Trạng thái bạn làm việc say mê đến mức quên cả thời gian và không cảm thấy mệt mỏi, năng suất tăng gấp nhiều lần được gọi là gì?",
         options: [
             { text: "Đang vào phom, làm việc năng suất.", isCorrect: false },
-            { text: "Trạng thái Flow (Dòng chảy) hoặc Microflow.", isCorrect: true },
+            { text: "Flow hoặc Microflow.", isCorrect: true },
             { text: "Làm việc bằng cả niềm đam mê.", isCorrect: false },
             { text: "Sự tập trung tuyệt đối.", isCorrect: false }
         ],
@@ -73,7 +73,7 @@ const quizData = [
         q: "Văn hóa nền tảng số 1 để một tập thể dám nói lên sự thật, dám sáng tạo và cống hiến là gì?",
         options: [
             { text: "Môi trường thân thiện, văn hóa gia đình.", isCorrect: false },
-            { text: "Psychological Safety (An toàn tâm lý).", isCorrect: true },
+            { text: "Psychological Safety.", isCorrect: true },
             { text: "Hệ thống quản trị minh bạch.", isCorrect: false },
             { text: "Sự tôn trọng và lắng nghe cấp dưới.", isCorrect: false }
         ],
@@ -83,7 +83,7 @@ const quizData = [
         q: "Công cụ nào rẻ nhất nhưng hiệu quả nhất để xây dựng văn hóa Biết ơn (Gratitude) trong một tổ chức?",
         options: [
             { text: "Thưởng tiền nóng, tặng quà.", isCorrect: false },
-            { text: "WOW Cards – Thiệp ghi nhận chân thành.", isCorrect: true },
+            { text: "WOW Cards.", isCorrect: true },
             { text: "Bình chọn nhân viên xuất sắc nhất tháng.", isCorrect: false },
             { text: "Tổ chức các buổi tiệc gắn kết đội ngũ.", isCorrect: false }
         ],
@@ -93,7 +93,7 @@ const quizData = [
         q: "Theo thói quen Vị nhân (Altruism), cách nhanh nhất để bạn phát triển năng lực của bản thân một cách bền vững là gì?",
         options: [
             { text: "Đi học thêm thật nhiều khóa học, đọc nhiều sách.", isCorrect: false },
-            { text: "Tìm kiếm Buddy / Mentor để chia sẻ và được dẫn dắt.", isCorrect: true },
+            { text: "Buddy / Mentor.", isCorrect: true },
             { text: "Tự mày mò nghiên cứu và trải nghiệm thực tế.", isCorrect: false },
             { text: "Thay đổi môi trường làm việc để học hỏi thêm.", isCorrect: false }
         ],
