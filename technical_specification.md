@@ -1,66 +1,77 @@
-# 🏗️ TÀI LIỆU KỸ THUẬT (TECHNICAL SPECIFICATION) — Dự án DH4HN Website
-
-Dự án này là nền tảng chia sẻ và đánh giá kiến thức cho chương trình **Delivering Happiness Masterclass**.
-
----
-
-## 🛠️ Giải pháp Kỹ thuật Đã triển khai
-
-### 1. Hệ thống Theo dõi Đa cấp (Multi-sheet Tracking)
-*   **Giải pháp:** Sử dụng Google Apps Script làm trung gian (Web App) để nhận dữ liệu từ Website qua phương thức POST và ghi vào Google Sheets.
-*   **Lý do:** Đảm bảo dữ liệu được thu thập thời gian thực, dễ quản trị, không tốn chi phí server và dễ dàng tạo biểu đồ phân tích (Dashboard).
-*   **Cấu trúc dữ liệu:**
-    *   **`Tong_hop` (Summary):** Theo dõi mỗi phiên làm việc là 1 dòng. Ghi nhận điểm số cuối cùng và trạng thái hoàn thành.
-    *   **`Chi_tiet` (Details):** Ghi lại chi tiết từng câu trả lời đúng/sai để khảo sát mức độ nắm giữ kiến thức.
-
-### 2. Hệ thống Analytics Hợp nhất (Unified Site Analytics)
-*   **Giải pháp:** Tạo file `tracking.js` dùng chung cho toàn bộ Website (Home & Quiz). Dùng `IntersectionObserver` để theo dõi cuộn trang (Scroll Depth).
-*   **Lý do:** Theo dõi hành trình người dùng toàn diện: từ bản Personal/Official -> Cuộn tới mục Đăng ký -> Vào làm Quiz. Giúp đo lường tỷ lệ chuyển đổi (Conversion Rate) chính xác hơn.
-*   **Quản lý Cache (Cache Busting):** Sử dụng tham số version `?v=X.X` khi load Script để vượt qua bộ nhớ đệm của trình duyệt khi cập nhật URL Tracking mới.
+# 🏗️ TÀI LIỆU KỸ THUẬT VÀ ĐẶC TẢ DỰ ÁN (TECHNICAL SPECIFICATION)
+**Dự án:** Delivering Happiness Masterclass (DH4HN) Website  
+**Phiên bản tài liệu:** v2.0 (Cập nhật ngày 23/03/2026)  
 
 ---
 
-## 📅 Lịch sử Thay đổi Kỹ thuật (Change Log)
+## 1. 📖 Giới thiệu Tổng quan (Overview)
+Dự án **DH4HN Website** là nền tảng chia sẻ kiến thức, bài giảng và đánh giá năng lực về "**Khoa học Hạnh phúc**". Nền tảng được thiết lập trên nền web tĩnh (Static Web) không cần backend truyền thống (Serverless), tích hợp hệ sinh thái nội dung từ Google NotebookLM và Google Sheets để giảm tải chi phí hạ tầng hoàn toàn (Zero Cost Architecture).
 
-| Ngày | Thay đổi | Lý do Chi tiết |
-|---|---|---|
-| 19/03 | Triển khai Tracking Quiz | Cần theo dõi lượt làm bài và điểm số ban đầu. |
-| 19/03 | Thiết kế Welcome Screen | Thử nghiệm tăng tính gợi mở và giảm tỷ lệ thoát (Bounce rate). |
-| 19/03 | **Rollback** Welcome Screen | USER yêu cầu vào thẳng nội dung câu hỏi để tối ưu tốc độ. |
-| 19/03 | Nâng cấp Multi-sheet | USER cần phân tách bảng Tổng hợp và Chi tiết để làm báo cáo Dashboard dễ dàng. |
-| 19/03 | Unified Analytics | Mở rộng theo dõi lượt view từng link (Official/Personal) và lượt cuộn xuống mục Đăng ký ở trang chủ. |
-| 20/03 | Sửa lỗi Quiz "đứng hình" | Loại bỏ trùng lặp hằng số `SHEET_WEBAPP_URL` gây SyntaxError giữa `tracking.js` và `quiz.js`. |
-| 20/03 | Thiết lập Work Rules | Đồng bộ hệ thống Log và Tài liệu kỹ thuật chuyên nghiệp. |
-| 22/03 | Upgrade Hero UI | Cập nhật bộ Tiêu đề Hero song ngữ "Delivering Happiness - Trao gửi Hạnh phúc". |
-| 22/03 | Chuyển đổi Repo | Di chuyển mã nguồn sang Repo mới: `DeliveringHappiness`. |
-| 23/03 | Fix Analytics v2.3 | Xử lý lỗi CORS và sai Spreadsheet ID. Đưa Dashboard vào hoạt động chính thức. |
+### 🎯 URL Chính thức
+- **Landing Page (Official):** [culturecodefeedforward.github.io/DeliveringHappiness](https://culturecodefeedforward.github.io/DeliveringHappiness/)
+- **Assessment/Quiz:** [culturecodefeedforward.github.io/DeliveringHappiness/assessment.html](https://culturecodefeedforward.github.io/DeliveringHappiness/assessment.html)
+- **Monitoring Dashboard:** [Google Sheets Dashboard](https://docs.google.com/spreadsheets/d/1Fb7zuIJ1nqxi6n9GvV41CpjXcMdswNr3IjOTzHBdZG8/edit?usp=sharing)
 
 ---
 
-## 🔗 Danh sách Link Dự án Chính thức
+## 2. 🏛️ Kiến trúc Hệ thống (System Architecture)
 
-| Hệ thống | Đường dẫn (URL) |
-|---|---|
-| **Landing Page** | `https://culturecodefeedforward.github.io/DeliveringHappiness/` |
-| **Trang Quiz** | `https://culturecodefeedforward.github.io/DeliveringHappiness/assessment.html` |
-| **File Dashboard** | `https://docs.google.com/spreadsheets/d/1Fb7zuIJ1nqxi6n9GvV41CpjXcMdswNr3IjOTzHBdZG8/edit?usp=sharing` |
+### 2.1. Nền tảng Công nghệ (Tech Stack)
+- **Frontend Code:** Vanilla HTML5, CSS3, JavaScript (ES6+).
+- **Hosting:** GitHub Pages.
+- **Backend / API:** Google Apps Script (Web App).
+- **Database / Data Warehouse:** Google Sheets.
+- **AI Content Generator:** Google NotebookLM Studio.
+
+### 2.2. Chiến lược Phân nhánh và Deploy (Split-Build Git Strategy)
+Hệ thống sử dụng **2 phiên bản UI song song** cho các mục đích xuất bản khác nhau, được quản lý rạch ròi qua 2 nhánh Git riêng biệt:
+- **Nhánh `main` (Phiên bản Cá nhân / Demo):** 
+  - Lưu và render trực tiếp toàn bộ khối giao diện "Studio Artifacts" (AudioTracks, Quiz Buttons, Infographic).
+  - Được đẩy (*push*) lên tài khoản GitHub cá nhân: `vuhoang2708/culture_code_VN.DH`.
+- **Nhánh `public-artifacts` (Phiên bản "Sạch" / Official):** 
+  - Khối "Studio Artifacts" được gỡ bỏ và thay thế bằng cổng "Thư viện kiến thức" (LMS Login Module). Chỉ thành viên hợp lệ mới vào xem được tài liệu.
+  - Sử dụng file gốc cấu hình từ `index_public.html`.
+  - Được đẩy (*push*) lên branch `main` của tổ chức chính thức: `culturecodefeedforward` và tổ chức legacy `culturecodeproject`.
+
+---
+
+## 3. 💾 Luồng Dữ liệu và Tracking (Data Flow & Analytics)
+
+### 3.1. Hệ thống Theo dõi Đa cấp (Multi-sheet DB)
+Toàn bộ request POST từ Javascript client sẽ được mã hóa và gửi tới **Google Apps Script Web App** (Bypass CORS bằng chế độ `no-cors` và xử lý JSON ở backend). 
+Dữ liệu đổ về Google Sheets được tổ chức thành 2 bảng (sheets) riêng biệt cho mục đích làm Báo cáo (Dashboard):
+1. **Bảng `Tong_hop` (Summary):** Theo dõi mỗi phiên trình duyệt làm việc là 1 chuỗi hành động duy nhất (Session IDs). Ghi nhận Điểm số sau cùng (Total Score) và Thời gian hoàn thành (Completion/Submission).
+2. **Bảng `Chi_tiet` (Details):** Ghi nhận granularity ở cấp độ câu hỏi (Câu 1 đúng, Câu 2 sai) nhằm đánh giá kiến thức của đám đông (Knowledge gap analysis).
+
+### 3.2. Analytics Hợp nhất (Unified Site Analytics)
+Kịch bản đánh giá hành vi người dùng (User behaviors) được viết chung trong module `tracking.js` (hiện tại là phiên bản `?v=2.3` để chống lưu Cache của trình duyệt).
+- **Page Visit Tracking:** Phân biệt lượng truy cập vào trang `index.html` (Landing) và `assessment.html` (Quiz).
+- **Scroll Depth Tracking:** Tích hợp API `IntersectionObserver` tự động kích hoạt event khi người dùng cuộn (scroll) chuỗi content dài và dừng lại ở đoạn CTA (Đăng ký Tham gia). Nhờ đó dễ dàng suy ra Tỷ lệ chuyển đổi (Conversion Rate) trên trang.
 
 ---
 
-## 🛡️ Quy tắc Dự án (Work Rules)
+## 4. 🧰 Quy tắc Môi trường Phát triển (Local Dev Rules)
 
-### 1. Local-First Protocol
-Tuyệt đối không push code lên GitHub nếu chưa chạy thử thành công tại Local (`python -m http.server`) và xác nhận qua ảnh chụp màn hình.
+### 4.1. Quy tắc Số 1 (Local-First Protocol)
+Luôn kiểm chứng mã nguồn (HTML, CSS chênh lệch, Responsive cho Mobile) trên *Local Server* tại máy nhánh trước khi thực thi lệnh git merge và git push lên repository chính. Không Push Test (đẩy code lên rác).
 
-### 2. Môi trường Local (Python Fix)
-Sử dụng bản Python Microsoft Store để vượt rào IT công ty. Lệnh chạy: `python -m http.server 8000`.
+### 4.2. Thiết lập Môi trường Local 
+1. **Không dùng Live Server ngoài:** Sử dụng server nguyên bản của Python.
+2. **Xử lý Fix lỗi Python Windows App Alias:** Máy công ty sử dụng bản Python từ Microsoft Store.
+   - Tập lệnh chạy: `python -m http.server 8000` (hoặc 8001 tuỳ port đang trống).
+   - Truy cập kiểm tra giả lập server tại thiết bị bằng `http://localhost:8000/...html`.
 
-### 3. Đường dẫn Mặc định (Project Root)
-Tất cả các tệp tin, dữ liệu và hội thoại của dự án Delivering Happiness phải được quản lý và lưu trữ tại thư mục mẹ: `G:\My Drive\antigravity`.
+### 4.3. Quản lý Tệp tin (Project Root Directory)
+Toàn bộ mọi loại file như JSON file, Script chụp màn hình, Log file cá nhân phải được thao tác từ thư mục gốc của Google Drive Sync cục bộ: `g:\My Drive\antigravity\dh4hn-website` để duy trì bản lưu trên mây.
 
 ---
-*📍 Tài liệu này sẽ được bổ sung ngay khi có bất kỳ thay đổi kỹ thuật nào mới.*
 
-## 🌳 Kiến trúc Triển khai (Branch Strategy)
-- **Branch `main`:** Lưu trữ phiên bản đầy đủ chứa "Studio Artifacts", được sử dụng cho repo hiển thị các mục đích Demo thuộc về cá nhân.
-- **Branch `public-artifacts`:** Phiên bản Sạch (Clean version), sử dụng tính năng "Thư viện kiến thức" (LMS Login). Được thiết lập để push lên `main` của repo đại diện chính thức (Official Repo - `culturecodefeedforward`).
+## 5. ⏱️ Nhật ký Thay đổi (Change Log & Revisions)
+
+| Version | Ngày | Chi tiết Kiến trúc & UI Đã Triển Khai |
+| :--- | :--- | :--- |
+| **v1.0** | 19/03/2026 | Tách bảng Multi-sheet (Tong_hop + Chi_tiet). |
+| **v1.1** | 19/03/2026 | Triển khai Unified Analytics & IntersectionObserver cho Scrool tracking. |
+| **v1.2** | 20/03/2026 | Debug logic lỗi biến `SHEET_WEBAPP_URL`. Hoàn thiện luồng Tracking liên trang. |
+| **v1.3** | 22/03/2026 | Nâng cấp UI song ngữ Hero Section ("Delivering Happiness - Trao gửi Hạnh phúc"). Chuyển hệ thống Repo sang CultureCode. |
+| **v2.0** | 23/03/2026 | Tổ chức lại cấu trúc **Branch Strategy Split-Build**. Quản trị 2 bản Deploy (Personal + Official) với LMS Login. Cập nhật Metadata OpenGraph về repo chuẩn `culturecodefeedforward`. Nâng cấp Tracking v2.3 hoàn chỉnh chống Cache. |
