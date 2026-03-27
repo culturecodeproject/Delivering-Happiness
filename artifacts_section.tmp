@@ -1,0 +1,81 @@
+﻿  <!-- STUDIO ARTIFACTS -->
+  <section class="section artifacts" id="artifacts">
+    <div class="container">
+      <h2 class="section-title">ðŸ“¼ Studio Artifacts</h2>
+      <p class="section-sub">CÃ¡c ná»™i dung Ä‘Æ°á»£c táº¡o ra tá»« NotebookLM Studio cho notebook nÃ y</p>
+
+      <div class="artifacts-grid" id="artifactsGrid">
+        <!-- AUDIO SERIES -->
+        <div class="artifact-card full-width">
+          <div class="artifact-icon">ðŸŽ™ï¸</div>
+          <h3>DHM4 Audio Series (6 Tracks)</h3>
+          <p>TÃ³m táº¯t chi tiáº¿t 10 chá»§ Ä‘á» vÃ  5 thÃ³i quen háº¡nh phÃºc</p>
+          <div class="audio-list">
+            <div class="audio-track">
+              <span class="track-title">1. Tá»•ng quan: Ba táº§ng Ä‘á»ƒ háº¡nh phÃºc bá»n vá»¯ng</span>
+              <audio controls>
+                <source src="data/artifacts/dh4_overview.mp3">
+              </audio>
+            </div>
+            <div class="audio-track">
+              <span class="track-title">2. Tá»‰nh thá»©c: ThoÃ¡t báº«y Ä‘a nhiá»‡m</span>
+              <audio controls>
+                <source src="data/artifacts/audio_mindful.mp3">
+              </audio>
+            </div>
+            <div class="audio-track">
+              <span class="track-title">3. Biáº¿t Æ¡n: NÃ¢ng cáº¥p bá»™ nÃ£o</span>
+              <audio controls>
+                <source src="data/artifacts/audio_biet_on.mp3">
+              </audio>
+            </div>
+            <div class="audio-track">
+              <span class="track-title">4. Láº¡c quan: RÃ¨n lÃ½ trÃ­ báº±ng ABCDE</span>
+              <audio controls>
+                <source src="data/artifacts/audio_lac_quan.mp3">
+              </audio>
+            </div>
+            <div class="audio-track">
+              <span class="track-title">5. PhiÃªu: LÃ m viá»‡c cá»±c phiÃªu</span>
+              <audio controls>
+                <source src="data/artifacts/audio_flow.mp3">
+              </audio>
+            </div>
+            <div class="audio-track">
+              <span class="track-title">6. Vá»‹ nhÃ¢n: NgÆ°á»i vá»‹ nhÃ¢n sáº¯c sáº£o</span>
+              <audio controls>
+                <source src="data/artifacts/audio_vi_nhan.mp3">
+              </audio>
+            </div>
+          </div>
+        </div>
+
+        <!-- VISUALS & DOCUMENTS -->
+        <div class="artifact-card">
+          <div class="artifact-icon">ðŸ–¼ï¸</div>
+          <h3>Lá»™ trÃ¬nh (Visual)</h3>
+          <p>Infographic Khoa há»c Háº¡nh phÃºc</p>
+          <a href="data/artifacts/infographic.png" target="_blank" class="artifact-status completed">Xem áº¢nh</a>
+        </div>
+
+        <div class="artifact-card">
+          <div class="artifact-icon">â“</div>
+          <h3>Tráº¯c nghiá»‡m (Quiz)</h3>
+          <p>2 Bá»™ cÃ¢u há»i Ã´n táº­p kiáº¿n thá»©c</p>
+          <div class="quiz-links">
+            <a href="data/artifacts/quiz_new.html" target="_blank" class="btn-sm">LÃ m Quiz má»›i (30 cÃ¢u)</a>
+            <a href="data/artifacts/quiz.html" target="_blank" class="btn-sm">LÃ m Quiz cÆ¡ báº£n</a>
+          </div>
+        </div>
+
+        <div class="artifact-card">
+          <div class="artifact-icon">ðŸ—ºï¸</div>
+          <h3>TÃ i liá»‡u khÃ¡c</h3>
+          <p>TÃ³m táº¯t & SÆ¡ Ä‘á»“ tÆ° duy (Check Studio)</p>
+          <a href="https://notebooklm.google.com/notebook/83c60631-fcfc-4138-b96a-bc99826be158" target="_blank"
+            class="artifact-status pending">Má»Ÿ NotebookLM Studio</a>
+        </div>
+      </div>
+    </div>
+  </section>
+

@@ -1,6 +1,6 @@
 # 🏗️ TÀI LIỆU KỸ THUẬT VÀ ĐẶC TẢ DỰ ÁN (TECHNICAL SPECIFICATION)
 **Dự án:** Delivering Happiness Masterclass (DH4HN) Website  
-**Phiên bản tài liệu:** v2.0 (Cập nhật ngày 23/03/2026)  
+**Phiên bản tài liệu:** v2.1 (Cập nhật ngày 27/03/2026)  
 
 ---
 
@@ -25,13 +25,12 @@ Dự án **DH4HN Website** là nền tảng chia sẻ kiến thức, bài giản
 
 ### 2.2. Chiến lược Phân nhánh và Deploy (Split-Build Git Strategy)
 Hệ thống sử dụng **2 phiên bản UI song song** cho các mục đích xuất bản khác nhau, được quản lý rạch ròi qua 2 nhánh Git riêng biệt:
-- **Nhánh `main` (Phiên bản Cá nhân / Demo):** 
-  - Lưu và render trực tiếp toàn bộ khối giao diện "Studio Artifacts" (AudioTracks, Quiz Buttons, Infographic).
-  - Được đẩy (*push*) lên tài khoản GitHub cá nhân: `vuhoang2708/culture_code_VN.DH`.
-- **Nhánh `public-artifacts` (Phiên bản "Sạch" / Official):** 
-  - Khối "Studio Artifacts" được gỡ bỏ và thay thế bằng cổng "Thư viện kiến thức" (LMS Login Module). Chỉ thành viên hợp lệ mới vào xem được tài liệu.
-  - Sử dụng file gốc cấu hình từ `index_public.html`.
-  - Được đẩy (*push*) lên branch `main` của tổ chức chính thức: `culturecodefeedforward` và tổ chức legacy `culturecodeproject`.
+- **Nhánh `main` (Hợp nhất / Hybrid):** 
+  - Chứa cả hai phiên bản `index.html` (Demo) và `index_public.html` (Official).
+  - Tích hợp **Smart Redirect Script** (Javascript) tại đầu file `index.html` để tự động nhận diện hostname:
+    - Nếu domain là chính thức (`culturecodefeedforward.github.io` / `culturecodeproject.github.io`): Tự động chuyển hướng sang `index_public.html` (Bản sạch).
+    - Nếu domain là cá nhân (`vuhoang2708.github.io`) hoặc `localhost`: Hiển thị bản đầy đủ (Demo).
+  - Được đẩy (*push*) đồng thời lên cả Repo Cá nhân và Repo Tổ chức (Single-branch deployment).
 
 ---
 
@@ -74,4 +73,5 @@ Toàn bộ mọi loại file như JSON file, Script chụp màn hình, Log file 
 | **v1.1** | 19/03/2026 | Triển khai Unified Analytics & IntersectionObserver cho Scrool tracking. |
 | **v1.2** | 20/03/2026 | Debug logic lỗi biến `SHEET_WEBAPP_URL`. Hoàn thiện luồng Tracking liên trang. |
 | **v1.3** | 22/03/2026 | Nâng cấp UI song ngữ Hero Section ("Delivering Happiness - Trao gửi Hạnh phúc"). Chuyển hệ thống Repo sang CultureCode. |
-| **v2.0** | 23/03/2026 | Tổ chức lại cấu trúc **Branch Strategy Split-Build**. Quản trị 2 bản Deploy (Personal + Official) với LMS Login. Cập nhật Metadata OpenGraph về repo chuẩn `culturecodefeedforward`. Nâng cấp Tracking v2.3 hoàn chỉnh chống Cache. |
+| **v2.0** | 23/03/2026 | Tổ chức lại cấu trúc **Branch Strategy Split-Build**. Quản trị 2 bản Deploy (Personal + Official) với LMS Login. |
+| **v2.1** | 27/03/2026 | Triển khai **Smart Redirect (Hybrid Branch)**. Gộp chung nhánh main, tự động điều hướng sang `index_public.html` dựa trên hostname. Sửa lỗi "phơi artifacts" sau khi làm Quiz. |
